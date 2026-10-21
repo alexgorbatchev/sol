@@ -8,6 +8,12 @@ module.exports = {
       10: '10px',
     },
     fontSize: {
+      'search-input': 'var(--font-size-search-input)',
+      'search-result': 'var(--font-size-search-result)',
+      'search-detail': 'var(--font-size-search-detail)',
+      translation: 'var(--font-size-translation)',
+      'calendar-title': 'var(--font-size-calendar-title)',
+      'calendar-time': 'var(--font-size-calendar-time)',
       xxxs: '8px',
       xxs: '11px',
       xs: '12px',

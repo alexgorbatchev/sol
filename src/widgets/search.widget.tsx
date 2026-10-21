@@ -186,7 +186,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 					!!item.IconComponent && <item.IconComponent />}
 				<Text
 					numberOfLines={1}
-					className={clsx("ml-3 text max-w-xl", {
+					className={clsx("ml-3 text text-search-result max-w-xl", {
 						"text-white": isActive,
 					})}
 				>
@@ -197,7 +197,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 
 				{item.type === ItemType.BOOKMARK && (
 					<Text
-						className={clsx("darker-text text-xs", {
+						className={clsx("darker-text text-search-detail", {
 							"text-white dark:text-neutral-200": isActive,
 						})}
 					>
@@ -206,7 +206,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 				)}
 				{item.type === ItemType.USER_SCRIPT && (
 					<Text
-						className={clsx("darker-text text-xs", {
+						className={clsx("darker-text text-search-detail", {
 							"text-white dark:text-neutral-200": isActive,
 						})}
 					>
@@ -216,7 +216,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 
 				{item.type === ItemType.CUSTOM && (
 					<Text
-						className={clsx("darker-text text-xs", {
+						className={clsx("darker-text text-search-detail", {
 							"text-white dark:text-neutral-200": isActive,
 						})}
 					>
@@ -226,7 +226,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 
 				{!!item.subName && (
 					<Text
-						className={clsx("darker-text text-xs", {
+						className={clsx("darker-text text-search-detail", {
 							"text-white dark:text-white": isActive,
 						})}
 					>
@@ -236,7 +236,7 @@ const ItemRow = observer(({ item, index }: { item: Item; index: number }) => {
 
 				{item.type === ItemType.FILE && !!item.url && (
 					<Text
-						className={clsx("darker-text text-xs", {
+						className={clsx("darker-text text-search-detail", {
 							"text-white dark:text-white": isActive,
 						})}
 					>

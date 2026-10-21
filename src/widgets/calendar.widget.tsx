@@ -50,22 +50,22 @@ export const CalendarWidget: FC = observer(() => {
 					backgroundColor: store.calendar.upcomingEvent.color,
 				}}
 			/>
-			<Text className="font-semibold text-sm">
+			<Text className="font-semibold text-calendar-title">
 				{store.calendar.upcomingEvent.title?.trim()}
 			</Text>
 			{diff > 0 ? (
-				<Text>
-					<Text className="text-sm text-neutral-500 dark:text-neutral-400">
+				<Text className="text-calendar-time">
+					<Text className="text-neutral-500 dark:text-neutral-400">
 						in{" "}
 					</Text>
-					<Text className="text-sm font-semibold">{diff}</Text>
-					<Text className="text-sm text-neutral-500 dark:text-neutral-400">
+					<Text className="font-semibold">{diff}</Text>
+					<Text className="text-neutral-500 dark:text-neutral-400">
 						{" "}
 						minutes
 					</Text>
 				</Text>
 			) : (
-				<Text className="text-sm text-neutral-500 dark:text-neutral-400">
+				<Text className="text-calendar-time text-neutral-500 dark:text-neutral-400">
 					has started
 				</Text>
 			)}

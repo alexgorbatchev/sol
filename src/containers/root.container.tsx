@@ -2,6 +2,8 @@ import clsx from 'clsx'
 import {FullCalendar} from 'components/FullCalendar'
 import {PermissionsBar} from 'components/PermissionsBar'
 import {observer} from 'mobx-react-lite'
+import {vars} from 'nativewind'
+import {createFontSizeVariables} from '../typography/normalizeFontSizes'
 import {Text, TouchableOpacity, View} from 'react-native'
 import {useStore} from 'store'
 import {Widget} from 'stores/ui.store'
@@ -107,7 +109,7 @@ export const RootContainer = observer(() => {
   }
 
   return (
-    <View>
+    <View style={vars(createFontSizeVariables(store.ui.fontSizes))}>
       <View onLayout={store.ui.setWindowHeight}>{subWindow}</View>
       {store.ui.confirmDialogShown && (
         <View className="absolute bottom-0 top-0 left-0 right-0 bg-black/50 items-center justify-center">

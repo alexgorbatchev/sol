@@ -27,6 +27,8 @@ import {
 } from "react-native";
 import RNRestart from "react-native-restart-newarch";
 import type { IRootStore } from "store";
+import { isValidFontSize, normalizeFontSizes } from "../typography/normalizeFontSizes";
+import type { FontSizeKey } from "../typography/types";
 import { PORTABLE_KEYS, UI_PERSISTED_KEYS } from "./config";
 import { createBaseItems } from "./items";
 import {
@@ -308,6 +310,7 @@ export const createUIStore = (root: IRootStore) => {
 						src.hasDismissedGettingStarted ?? false;
 					store.hyperKeyEnabled = src.hyperKeyEnabled ?? false;
 					store.disabledItemIds = src.disabledItemIds ?? [];
+					store.fontSizes = normalizeFontSizes(src.fontSizes);
 
 					// If JSON had portable data, user completed onboarding
 					if (hasPortableData) {
@@ -346,7 +349,12 @@ export const createUIStore = (root: IRootStore) => {
 		isHydrating = true;
 		try {
 			const jsonConfig = await readPersistedUIState();
-			if (!jsonConfig) return;
+			if (!jsonConfig) {
+				runInAction(() => {
+					store.fontSizes = normalizeFontSizes(undefined);
+				});
+				return;
+			}
 			runInAction(() => {
 				if (jsonConfig.frequencies !== undefined)
 					store.frequencies = jsonConfig.frequencies;
@@ -398,6 +406,7 @@ export const createUIStore = (root: IRootStore) => {
 					store.customItems = jsonConfig.customItems;
 				if (jsonConfig.disabledItemIds !== undefined)
 					store.disabledItemIds = jsonConfig.disabledItemIds;
+				store.fontSizes = normalizeFontSizes(jsonConfig.fontSizes);
 			});
 			// Re-apply native side effects
 			solNative.setLaunchAtLogin(store.launchAtLogin);
@@ -454,6 +463,7 @@ export const createUIStore = (root: IRootStore) => {
 		calendarEnabled: true,
 		showAllDayEvents: true,
 		launchAtLogin: true,
+		fontSizes: normalizeFontSizes(undefined),
 		hasFullDiskAccess: false,
 		bookmarks: [] as Item[],
 		mediaKeyForwardingEnabled: true,
@@ -1306,6 +1316,12 @@ export const createUIStore = (root: IRootStore) => {
 			const callback = store.confirmCallback;
 			store.closeConfirm();
 			await callback?.();
+		},
+		setFontSize: (key: FontSizeKey, size: number): void => {
+			if (isValidFontSize(size)) store.fontSizes[key] = size;
+		},
+		resetFontSizes: (): void => {
+			store.fontSizes = normalizeFontSizes(undefined);
 		},
 		reloadJsonConfig,
 	});

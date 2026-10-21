@@ -32,14 +32,14 @@ const RenderItem = observer(({ item, index }: any) => {
 				)}
 				<Text
 					numberOfLines={1}
-					className={clsx("ml-3 flex-1", {
+					className={clsx("ml-3 flex-1 text-search-result", {
 						"text-white dark:text-white": isActive,
 					})}
 				>
 					{item.name}
 				</Text>
 				<Text
-					className={clsx("darker-text text-xs", {
+					className={clsx("darker-text text-search-detail", {
 						"text-white dark:text-white": isActive,
 					})}
 				>

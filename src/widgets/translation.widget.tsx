@@ -48,7 +48,7 @@ export const TranslationWidget: FC<Props> = observer(({ style }) => {
 							},
 						)}
 					>
-						<Text className="flex-1 text" style={{ fontFamily: "Andale Mono" }}>
+						<Text className="flex-1 text text-translation" style={{ fontFamily: "Andale Mono" }}>
 							{store.ui.translationResults[0]}
 						</Text>
 						<Text className="absolute bottom-2 right-2 opacity-50">
@@ -64,7 +64,7 @@ export const TranslationWidget: FC<Props> = observer(({ style }) => {
 							},
 						)}
 					>
-						<Text className="flex-1 text" style={{ fontFamily: "Andale Mono" }}>
+						<Text className="flex-1 text text-translation" style={{ fontFamily: "Andale Mono" }}>
 							{store.ui.translationResults[1]}
 						</Text>
 						<Text className="absolute bottom-2 right-2 opacity-50">
@@ -82,7 +82,7 @@ export const TranslationWidget: FC<Props> = observer(({ style }) => {
 							)}
 						>
 							<Text
-								className="flex-1 text "
+								className="flex-1 text text-translation"
 								style={{ fontFamily: "Andale Mono" }}
 							>
 								{store.ui.translationResults[2]}

@@ -74,6 +74,36 @@ Version checks compare numeric components and accept later releases automaticall
 Unsupported emoji are excluded from browsing, search, and the seven-entry favorites row, but their saved usage counts are retained.
 When those emoji become supported after an OS upgrade, they participate in the normal top-seven favorites ranking.
 
+## Font sizes
+
+Use **Settings → General → Font sizes** to adjust each size independently. Changes apply immediately and are saved in `~/.config/sol/config.json`. **Reset** restores the defaults below.
+
+You can also set any subset of `fontSizes` in that file, then use **Reload Config** in General settings or restart Sol:
+
+```json
+{
+  "fontSizes": {
+    "searchInput": 16,
+    "searchResult": 14,
+    "searchDetail": 12,
+    "translation": 14,
+    "calendarTitle": 13,
+    "calendarTime": 11
+  }
+}
+```
+
+| Key | Default | Applies to |
+| --- | --- | --- |
+| `searchInput` | `18` | Title/search input in search, translation, clipboard, files, processes, and emoji views |
+| `searchResult` | `14` | App, command, bookmark, and file result names |
+| `searchDetail` | `12` | Result types, subtitles, and file paths |
+| `translation` | `14` | Translated text |
+| `calendarTitle` | `13` | Event titles and calendar day headings |
+| `calendarTime` | `11` | Calendar event times and relative time labels |
+
+Values are numbers from `8` to `32`, including fractional sizes. Missing or invalid values use the default for that field independently. Removing an override and reloading restores that field's default. These settings are stored with portable preferences, separate from runtime state.
+
 ## Contributing
 
 You need to set up your machine for macOS development with React Native. Basically you need to install:

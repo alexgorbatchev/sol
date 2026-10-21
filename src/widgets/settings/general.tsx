@@ -1,6 +1,7 @@
 import { Assets } from "assets";
 import clsx from "clsx";
 import { Dropdown } from "components/Dropdown";
+import { FontSizeSettings } from "components/FontSizeSettings";
 import { Input } from "components/Input";
 import { MySwitch } from "components/MySwitch";
 import { solNative } from "lib/SolNative";
@@ -24,6 +25,7 @@ export const General = observer(() => {
 			className="flex-1"
 			contentContainerClassName="p-5 gap-2"
 		>
+			<FontSizeSettings />
 			<View className="flex-row items-center p-3 subBg rounded-lg border border-lightBorder dark:border-darkBorder">
 				<View className="flex-1">
 					<Text className="text-sm text">Open at Login</Text>

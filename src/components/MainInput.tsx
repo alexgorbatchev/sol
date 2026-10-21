@@ -58,7 +58,7 @@ export const MainInput = observer<Props>(
 					enableFocusRing={false}
 					value={store.ui.query}
 					onChangeText={store.ui.setQuery}
-					className={clsx("text-lg flex-1", {
+					className={clsx("text-search-input flex-1", {
 						"text-white": isDarkMode,
 						"text-black": !isDarkMode,
 					})}

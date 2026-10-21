@@ -59,7 +59,7 @@ const CalendarItem = ({ item }: { item: INativeEvent }) => {
 				<Text
 					numberOfLines={1}
 					className={clsx(
-						"flex-1 pr-10 text-sm dark:text-stone-300 text-neutral-600",
+						"flex-1 pr-10 text-calendar-title dark:text-stone-300 text-neutral-600",
 						{
 							"font-semibold": store.calendar.upcomingEvent?.id === item.id,
 							"text-white": hovered,
@@ -71,7 +71,7 @@ const CalendarItem = ({ item }: { item: INativeEvent }) => {
 
 				{!item.isAllDay && (
 					<Text
-						className={clsx("dark:text-neutral-400 text-xxs", {
+						className={clsx("dark:text-neutral-400 text-calendar-time", {
 							"text-white dark:text-white": hovered,
 						})}
 						style={{
@@ -106,7 +106,7 @@ const RenderItem = ({ item }: any) => {
 	return (
 		<View>
 			<View className="mx-3 p-2 gap-1">
-				<Text className="capitalize text-neutral-400 dark:text-neutral-500 text-sm">
+				<Text className="capitalize text-neutral-400 dark:text-neutral-500 text-calendar-title">
 					{item.date.toRelativeCalendar({
 						unit: "days",
 					})}

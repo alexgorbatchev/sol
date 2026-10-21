@@ -24,6 +24,7 @@ export const PORTABLE_KEYS = [
 	"hyperKeyEnabled",
 	"customItems",
 	"disabledItemIds",
+	"fontSizes",
 ] as const;
 
 export const RUNTIME_CONFIG_KEYS = [
